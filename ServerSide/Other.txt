@@ -1,0 +1,8 @@
+Bug - uniqueness is not working
+
+
+Model -
+
+controller - 
+
+view - 
