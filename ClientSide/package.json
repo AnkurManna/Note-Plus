@@ -2,6 +2,9 @@
   "dependencies": {
     "bootstrap": "^4.5.3",
     "react-hook-form": "^6.10.1",
-    "reactstrap": "^8.7.0"
+    "react-redux": "^7.2.2",
+    "reactstrap": "^8.7.0",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
   }
 }
