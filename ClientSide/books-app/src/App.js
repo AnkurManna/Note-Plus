@@ -1,9 +1,10 @@
 
 import React,{useState,useEffect} from 'react';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import { InputGroup, InputGroupAddon, Label, Input ,FormGroup} from 'reactstrap';
+import { Label, Input ,FormGroup} from 'reactstrap';
 import axios from 'axios';
 import {Button, Table} from 'reactstrap';
+
 import './App.css';
 import Card from './Card';
 function App() {
@@ -77,7 +78,7 @@ function App() {
 
   return (
 
-  
+    
     <div className="App">
       <Button color="danger" onClick={toggle}>Add a Note</Button>
       <Modal isOpen={modalIsOpen} toggle={toggle} className="newNote">
@@ -132,6 +133,7 @@ function App() {
         
       </Table>
     </div>
+    
   );
 }
 /*

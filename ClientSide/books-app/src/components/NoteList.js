@@ -1,61 +1,75 @@
-import React, { Component } from 'react';
-import {useState,useEffect} from 'react';
+import React, { Component }from 'react';
 import axios from 'axios';
-import {Button, Table} from 'reactstrap';
-export default function NoteList () {
-  const [tasks,setTasks] = useState([]);
-  const getData = async () =>
-  {
-    const res = await axios.get('http://localhost:4000/api/v1/tasks');
-    
-
-    setTasks(res.data.data.tasks);
-    console.log(res.data);
-    console.log(tasks);
-    
+import {Button, Table,ListGroupItem,ListGroup, Container} from 'reactstrap';
+import {CSSTransition,TransitionGroup} from 'react-transition-group';
+import {connect} from 'react-redux';
+import {getItems} from '../action/noteActions';
+import PropTypes from 'prop-types';
+class  NoteList extends Component  {
+  state = { 
+    note :[
+      {id:1,task:"do this",importance:3},
+      {id:2,task:"do this",importance:3}
+]}
+  
+  componentDidMount(){
+    this.props.getItems();
   }
- 
-  useEffect(() => {
-    getData();
-  },[]);
 
-    return (
-      <>
-      <Table>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Title</th>
-            <th>Rating</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
 
-        <tbody>
-          {tasks&&tasks.map((tsk,index)=>{
-    //console.log(tsk._id,tsk.task);
-    return (
-      <>
+    render(){
+      const tasks = this.state.note;
+    
+      return (
         
-      <tr key={index}>
-          <td>{index}</td>
-          <td>{tsk.task}</td>
-          <td>{tsk.importance}</td>
-          <td>
-            <Button color="success" size="sm" className="mr-2">Edit</Button>
-            <Button color="danger" size="sm">Delete</Button>
-          </td>
-      </tr>
-      
-      </>
+        <Table>
+          <Button color="dark">Add Note</Button>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Title</th>
+              <th>Rating</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {tasks.map((tsk,index)=>(
+      //console.log(tsk._id,tsk.task);
+   
+          
+        <tr key={index}>
+            <td>{index}</td>
+            <td>{tsk.task}</td>
+            <td>{tsk.importance}</td>
+            <td>
+              <Button color="success" size="sm" className="mr-2">Edit</Button>
+              <Button color="danger" size="sm">Delete</Button>
+            </td>
+        </tr>
         
         
-    );
-  })}
-        </tbody>
+          
+          
+      )
+    )}
+          </tbody>
+          
+        </Table>
         
-      </Table>
-      </>
-    )
+        
+      )
+
+  }
   
 }
+NoteList.propTypes = {
+  getItems:PropTypes.func.isRequired,
+  note : PropTypes.object.isRequired 
+}
+//export default NoteList;
+
+const mapStateToProps = state =>({
+  note:state.note
+})
+export default connect(mapStateToProps,{getItems})(NoteList);
