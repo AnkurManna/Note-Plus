@@ -1,14 +1,22 @@
 const mongoose = require('mongoose');
 const UserSchema = new mongoose.Schema({
-    "name" : {
+    name : {
         type: String,
         required: [true,'A user must have a body'],
         
     },
-    "mail" : {
+    email : {
         type: String,
         required:[true, 'A user must have a mail id'],
-        unique : true
+        unique: true
+    },
+    password : {
+        type:String, 
+        required: true
+    },
+    register_date : { 
+        type: Date, 
+        default: Date.now()
     }
 });
 
