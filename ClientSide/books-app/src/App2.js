@@ -21,13 +21,12 @@ function App2()
     return (
     
             <Provider store={store}>
-                <AppNavbar/>
+            <AppNavbar/>
             <div className="container">
                 {console.log(store)}
                 
                 <Container>
                 <ItemModal/>
-                
                 <NoteList/>
                 </Container>
 

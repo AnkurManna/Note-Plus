@@ -9,7 +9,7 @@ const initialState = {
 export default function noteReducer(state=initialState,action)
 {
     switch(action.type)
-     {
+    {
     case  GET_NOTES:
         return {
             ...state,
