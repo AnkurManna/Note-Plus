@@ -22,8 +22,10 @@ exports.getAllTasks = async (req,res) =>
 {
     try
     {
-        console.log("here4");
+        //console.log("getAllTask");
         const tasks = await Task.find();
+
+        console.log(tasks);
         res.status(200).json({
             status: 'success',
             results : tasks.length,
@@ -35,6 +37,7 @@ exports.getAllTasks = async (req,res) =>
     }
     catch(err)
     {
+        console.log(err);
         res.status(404).json({
             status:'fail'
         })
@@ -43,14 +46,14 @@ exports.getAllTasks = async (req,res) =>
 }
 exports.createTask = async (req,res) =>
 {
-    console.log("called");
+    console.log("create called");
     console.log(req.body);
     try
     {
 
         
         const newTask = await Task.create(req.body);
-        res.status(201).json({
+        return res.status(201).json({
             status:'success',
             data:
             {
@@ -61,7 +64,7 @@ exports.createTask = async (req,res) =>
     catch (err)
     {
         console.log('error ',err);
-        res.status(400).json({
+        return res.status(400).json({
             status:'failed',
             message:err
         })

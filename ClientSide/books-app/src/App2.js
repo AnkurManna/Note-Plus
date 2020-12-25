@@ -1,26 +1,39 @@
 import React from 'react';
-import {BrowserRouter as Router ,Route} from "react-router-dom";
+import {useEffect} from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import Navbar from "./components/Navbar";
+import ItemModal from "./components/ItemModal";
 import NoteList from "./components/NoteList";
+import AppNavbar from "./components/AppNavbar";
 import EditNote from "./components/EditNote";
 import CreateNote from "./components/CreateNote";
 import CreateUser from "./components/CreateUser";
+import {Provider} from 'react-redux';
+import store from './store';
+import {Container} from 'reactstrap';
+import {loadUser} from './action/authAction';
+
 function App2()
 {
+    useEffect(() =>{
+        store.dispatch(loadUser());
+    })
     return (
-        <Router>
+    
+            <Provider store={store}>
+            <AppNavbar/>
             <div className="container">
-                <Navbar />
-                <br/>
-                <Route path="/" exact component={NoteList} />
-                <Route path="/edit/:id" component={EditNote} />
-                <Route path="/create" component={CreateNote} />
-                <Route path="/user" component={CreateUser} />
+                {console.log(store)}
+                
+                <Container>
+                <ItemModal/>
+                <NoteList/>
+                </Container>
 
             </div>
-        </Router>
+            </Provider>
+            
+        
     )
 }
 

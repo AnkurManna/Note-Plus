@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 const TaskSchema = new mongoose.Schema({
-    "task" : {
+    task : {
         type: String,
         required: [true,'A task must have a body'],
         unique : true
     },
-    "importance" : {
+    importance : {
         type: Number,
         required:[true, 'A task must have importance value']
     }
