@@ -2,10 +2,10 @@ const http = require('http');
 const mongoose = require('mongoose');
 const app = require('./app');
 const url = require('url');
-//const config = require('./default.json');
-//const jwt = config.get('jwtSecret');
-const DB_link ="mongodb://Ankur:Ankur@cluster0-shard-00-00.ocjs2.mongodb.net:27017,cluster0-shard-00-01.ocjs2.mongodb.net:27017,cluster0-shard-00-02.ocjs2.mongodb.net:27017/test?ssl=true&replicaSet=atlas-wnnthy-shard-0&authSource=admin&retryWrites=true&w=majority";
-//mongodb+srv://Ankur:Ankur@cluster0.ocjs2.mongodb.net/Test?retryWrites=true&w=majority
+const keys = require('./keys');
+
+const DB_link = keys.DB_link
+
 mongoose.connect(DB_link,{
     useNewUrlParser: true,
     useCreateIndex:true,

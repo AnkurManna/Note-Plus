@@ -2,7 +2,8 @@
 const User = require('./../models/userModel');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const jwtSecret = "nl_myJwtSecret";
+const keys = require('../keys');
+const jwtSecret = keys.jwtSecret;
 exports.getAllUsers = async (req,res) =>
 {
     try

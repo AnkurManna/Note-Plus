@@ -8,14 +8,14 @@ import PropTypes from 'prop-types';
 class  NoteList extends Component  {
 
  
-  componentDidMount(){
-    this.props.getItems();
-    console.log(this.props.note);
-  }
+componentDidMount(){
+  this.props.getItems();
+  console.log(this.props.note);
+}
 
-  onDeleteClick(id){
-    this.props.deleteItem(id);
-  }
+onDeleteClick(id){
+  this.props.deleteItem(id);
+}
 
 
     render(){
