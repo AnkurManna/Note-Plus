@@ -12,3 +12,7 @@ export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 export const REGISTER_FAIL = 'REGISTER_FAIL';
 export const GET_ERRORS = 'GET_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
+export const GET_FOLDERS = 'GET_FOLDERS';
+export const ADD_FOLDER = 'ADD_FOLDER';
+export const DELETE_FOLDER = 'DELETE_FOLDER';
+export const FOLDERS_LOADING = 'FOLDERS_LOADING';

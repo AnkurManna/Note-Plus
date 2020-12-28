@@ -1,18 +1,18 @@
 import React, { useState,Component ,Fragment } from 'react';
 
 import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText
+Collapse,
+Navbar,
+NavbarToggler,
+NavbarBrand,
+Nav,
+NavItem,
+NavLink,
+UncontrolledDropdown,
+DropdownToggle,
+DropdownMenu,
+DropdownItem,
+NavbarText
 } from 'reactstrap';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
@@ -29,7 +29,7 @@ class AppNavbar extends Component  {
         auth: PropTypes.object.isRequired
     };
 
-  
+
 
 toggle = () => 
 {
@@ -38,12 +38,16 @@ toggle = () =>
 
 render(){
 
-    const {isAuthenticated,user } = this.props.auth;
+    const {isAuthenticated,data} = this.props.auth;
+    
+    
+
+    //console.log(this.props.auth);
     const authLinks = (
         <Fragment>
             <NavItem>
-            <span className="navbar-text mr-3">
-    <strong>{user?`Welcome ${user.name}`:''}</strong>    
+            <span >
+    <h6 >{data?`Welcome ${data.name}`:' '}</h6>    
             </span>    
             </NavItem>
             <NavItem><Logout/></NavItem>

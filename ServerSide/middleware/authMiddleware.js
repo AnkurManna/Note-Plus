@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
-const jwtSecret = "nl_myJwtSecret";
+const keys = require('../keys');
+const jwtSecret = keys.jwtSecret;
 function auth(req, res, next) {
     const token = req.header('x-auth-token');
 

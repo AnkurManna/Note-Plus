@@ -10,10 +10,10 @@ REGISTER_SUCCESS,
 } from '../action/types';
 
 const initialState = {
-    token: localStorage.getItem('token'),
-    isAuthenticated: null,
+    /*token: localStorage.getItem('token'),
+    isAuthenticated: localStorage.getItem('token') ? true : false,
     isLoading: false,
-    user: null
+    user: localStorage.getItem('auth')?localStorage.getItem('auth').user:null*/
 };
 
 export default function authReducer(state = initialState, action)

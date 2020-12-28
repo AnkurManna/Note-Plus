@@ -26,8 +26,10 @@ Task.init().then(testTask.save().then(doc => {
 
 const taskRouter = require('./routes/taskRoutes');
 const userRouter = require('./routes/userRoutes');
+//const folderRouter = require('./routes/folderRoutes');
 const authRouter = require('./routes/auth');
 app.use('/api/v1/users',userRouter);
 app.use('/api/v1/tasks',taskRouter);
 app.use('/api/v1/auth',authRouter);
+//app.use('/api/v1/folders',folderRouter);
 module.exports = app;
